@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mystary Game</title>
+    <style>
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            background-color: lightblue;
+
+        }
+
+        .flex-item {
+            background-color: lightpink;
+            border: solid;
+        }
+
+        .container {
+            background-color: mediumpurple;
+            border: solid;
+            border-radius: 10px;
+            height: 100vx;
+
+        }
+
+        .table {
+            background-color: lightgoldenrodyellow;
+            border: solid;
+            border-radius: 10px;
+
+        }
+
+        .score-board {
+            height: 450px;
+            width: 300px;
+            background-color: lightblue;
+            border: solid;
+        }
+
+        img {
+            height: 100px;
+            width: 100px;
+        }
+
+        .boy {
+
+            border-radius: 10px;
+        }
+
+        .girl {
+
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Mystary Game</h1>
+    <div class="container flex-container">
+        <div class="table flex-item">
+            <table>
+                <tr>
+                    <td><img onclick="play(this.id)" id="img-1"
+                            src="https://i1.wp.com/www.gabbinggeek.com/wp-content/uploads/2015/07/mystery-box.jpg?resize=580%2C580">
+                    </td>
+                    <td><img onclick="play(this.id)" id="img-2"
+                            src="https://i1.wp.com/www.gabbinggeek.com/wp-content/uploads/2015/07/mystery-box.jpg?resize=580%2C580">
+                    </td>
+                    <td><img onclick="play(this.id)" id="img-3"
+                            src="https://i1.wp.com/www.gabbinggeek.com/wp-content/uploads/2015/07/mystery-box.jpg?resize=580%2C580">
+                    </td>
+                </tr>
+                <tr>
+                    <td><img onclick="play(this.id)" id="img-4"
+                            src="https://i1.wp.com/www.gabbinggeek.com/wp-content/uploads/2015/07/mystery-box.jpg?resize=580%2C580">
+                    </td>
+                    <td><img onclick="play(this.id)" id="img-5"
+                            src="https://i1.wp.com/www.gabbinggeek.com/wp-content/uploads/2015/07/mystery-box.jpg?resize=580%2C580">
+                    </td>
+                    <td><img onclick="play(this.id)" id="img-6"
+                            src="https://i1.wp.com/www.gabbinggeek.com/wp-content/uploads/2015/07/mystery-box.jpg?resize=580%2C580">
+                    </td>
+                </tr>
+                <tr>
+                    <td><img onclick="play(this.id)" id="img-7"
+                            src="https://i1.wp.com/www.gabbinggeek.com/wp-content/uploads/2015/07/mystery-box.jpg?resize=580%2C580">
+                    </td>
+                    <td><img onclick="play(this.id)" id="img-8"
+                            src="https://i1.wp.com/www.gabbinggeek.com/wp-content/uploads/2015/07/mystery-box.jpg?resize=580%2C580">
+                    </td>
+                    <td><img onclick="play(this.id)" id="img-9"
+                            src="https://i1.wp.com/www.gabbinggeek.com/wp-content/uploads/2015/07/mystery-box.jpg?resize=580%2C580">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="score-board flex-container">
+
+            <div class="flex-item boy">
+
+                <img style="width: 60px; height: 70px;"
+                    src="https://www.clipartmax.com/png/middle/92-924724_cartoon-child-clip-art-little-boy-cartoon.png">
+
+                <h1 id="boy">0</h1>
+            </div>
+            <div class="flex-item girl ">
+                <img style="width: 60px; height: 70px;"
+                    src="https://th.bing.com/th/id/OIP.eDH1pBKwG2kdFK2HSkoOtQHaJa?pid=ImgDet&rs=1">
+                <h1 id="girl">0</h1>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let bs = 0
+        let gs = 0
+        let mb = "https://i1.wp.com/www.gabbinggeek.com/wp-content/uploads/2015/07/mystery-box.jpg?resize=580%2C580"
+        function play(box) {
+            let game = document.getElementById(box).src
+            if (game == mb) {
+
+                let x = Math.random() * 100
+                x = Math.floor(x)
+                if (x % 2 == 0) {
+
+                    document.getElementById(box).src = "https://www.clipartmax.com/png/middle/92-924724_cartoon-child-clip-art-little-boy-cartoon.png"
+                    bs = bs + 1
+                    document.getElementById("boy").innerText = bs
+                    
+                }
+
+                else {
+
+                    document.getElementById(box).src = "https://th.bing.com/th/id/OIP.eDH1pBKwG2kdFK2HSkoOtQHaJa?pid=ImgDet&rs=1"
+                    gs = gs + 1
+                    document.getElementById("girl").innerText = gs
+                }
+                if (gs > 4) {
+                    location.href = "winner.html"
+                }
+                else if (bs > 4) {
+                    location.href = "loser.html"
+                }
+
+            }
+        }        </script>
+
+</body>
+
+</html>
